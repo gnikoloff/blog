@@ -1,0 +1,20 @@
+extends ./layout.pug
+block body
+  header.site-header
+      div.container
+          h1 Georgi Nikoloff's Works, Sketches and Musings
+          nav
+              ul
+                  li
+                      a(href="/") Home
+                  li
+                      a(href="/about") About
+                      
+  div.articles-page
+    div.container
+      each article, index in articles
+        a.article-preview(href="articles/" + article.uid)
+          h2 #{ article.getStructuredText('blogarticle.article_heading').asText() }
+          h5 #{ article.getStructuredText('blogarticle.project-type').asText() }    
+  
+

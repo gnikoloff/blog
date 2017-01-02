@@ -1,0 +1,24 @@
+extends ./layout.pug
+block body
+    header.site-header
+        div.container
+            nav
+                ul
+                    li
+                        a(href="/") Home
+                    li
+                        a(href="/about") About
+                        
+    div.article-page-single
+        div.container
+            div.article-body !{ postContent.getStructuredText('blogarticle.article-body').asHtml() }
+            div.article-meta
+                if (postContent.getStructuredText('blogarticle.project-role').asText() !== ' ')
+                    h5 Role
+                    p #{ postContent.getStructuredText('blogarticle.project-role').asText() }
+                if (postContent.getStructuredText('blogarticle.project-technology').asText() !== ' ')
+                    h5 Technology
+                    p #{ postContent.getStructuredText('blogarticle.project-technology').asText() }
+                if (postContent.getStructuredText('blogarticle.project-company').asText() !== ' ')
+                    h5 Company
+                    p #{ postContent.getStructuredText('blogarticle.project-company').asText() }

@@ -1,0 +1,15 @@
+extends ./layout.pug
+block body
+  header.site-header
+      div.container
+          nav
+              ul
+                  li
+                      a(href="/") Home
+                  li
+                      a(href="/about") About
+                      
+  div.about-page
+    div.container
+        h1 About
+        div !{ article.getStructuredText('about.about-body').asHtml() }
